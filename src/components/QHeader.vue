@@ -34,20 +34,23 @@
 
     <!-- 2、顶部导航栏 -->
     <ul id="nav">
-      <li class="nav-item" v-for="label in labels" :key="label.index">
-        <a href="#" class="a">{{ label }}</a>
+      <!-- <li class="nav-item"><a href="/" class="a">首页</a></li> -->
+      <li class="nav-item" v-for="label in homeData.label" :key="label.index">
+        <a href="#" class="a">{{ label.name }}</a>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'QHeader',
-  data() {
-    return {
-      labels: ['首页', '玄幻', '修真', '都市', '穿越', '网游', '科幻', '其它']
-    }
+  created () {
+    this.$store.dispatch('getHomeData')
+  },
+  computed: {
+    ...mapState(['homeData'])
   }
 }
 </script>

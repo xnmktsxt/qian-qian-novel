@@ -4,17 +4,20 @@
       <article id="article"></article>
       <aside id="aside"></aside>
     </div>
-    <div id="aritcle-bottom"></div>
+    <div id="aritcle-bottom">{{ homeData }}</div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'QMain',
+  // 在组件创建之前拉取数据
   created () {
-    this.$http.get('/api/getHome').then(response => {
-      console.log(response.data)
-    })
+    this.$store.dispatch('getHomeData')
+  },
+  computed: {
+    ...mapState(['homeData'])
   }
 }
 </script>

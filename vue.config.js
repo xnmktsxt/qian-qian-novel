@@ -2,8 +2,6 @@ module.exports = {
   //用代理跨域
   devServer: {
     proxy: {
-      host: 'localhost', // 主机
-      port: 8080, // 端口
       '/api': {
         // 拦截器：如果请求路径中有api字段就就行拦截
         // 并将前面的主机号和端口替换成下面的target
