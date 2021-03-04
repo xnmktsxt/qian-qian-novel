@@ -1,6 +1,8 @@
 # qian-qian-novel
 
 ## Project setup
+技术栈：Vue2、Vuex、Vue-CLI4、Vue-router、axios、Element-UI、Sass、node.js
+
 ```
 npm install
 ```
