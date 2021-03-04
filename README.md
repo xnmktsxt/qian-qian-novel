@@ -1,7 +1,9 @@
-# qian-qian-novel
+小说阅读网站
+
+## 技术栈
+Vue2、Vuex、Vue-CLI4、Vue-router、axios、Element-UI、Sass、node.js
 
 ## Project setup
-技术栈：Vue2、Vuex、Vue-CLI4、Vue-router、axios、Element-UI、Sass、node.js
 
 ```
 npm install
