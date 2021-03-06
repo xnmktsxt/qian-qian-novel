@@ -5,7 +5,9 @@
     <header id="header">
       <!-- logo -->
       <div id="logo">
-        <img src="@/assets/qianqian.png" alt="logo" />
+        <router-link to="/">
+          <img src="@/assets/qianqian.png" alt="logo" />
+        </router-link>
       </div>
 
       <!-- 搜索框 -->
@@ -76,7 +78,7 @@ export default {
     height: 8.5rem;
     border-bottom: 1px solid #f5f5f5;
     // logo
-    #logo > img {
+    #logo > a > img {
       width: 5rem;
     }
     // 右上角书架和头像

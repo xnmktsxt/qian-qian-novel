@@ -1,11 +1,12 @@
 <template>
   <div id="article-wrap">
     <div id="article-top">
+      <!-- 热门小说 -->
       <div id="hot">
         <h3 id="hot-title">热门小说</h3>
         <div id="hot-book-list">
-          <a
-            href="#"
+          <router-link
+            :to="{ path: '/getAriticle', query: { url: book.url } }"
             v-for="book in homeData.hot"
             :key="book.index"
             class="hot-book"
@@ -18,43 +19,52 @@
               </div>
               <p class="introduce">{{ book.intrduce }}</p>
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
 
+      <!-- 强力推荐 -->
       <div id="recommended">
-        <h3 id="recommended-title">推荐小说</h3>
+        <h3 id="recommended-title">{{ highlyRecommended.recommendedTitle }}</h3>
         <div id="recommended-book-list">
           <div
             class="recommeded-book"
-            v-for="book in homeData.recommended[0].content"
+            v-for="book in highlyRecommended.content"
             :key="book.index"
           >
-            <a href="#" class="title">{{ book.title }}</a>
-            <a href="#" class="author">{{ book.author }}</a>
+            <router-link to="#" class="title">{{ book.title }}</router-link>
+            <router-link to="#" class="author">{{ book.author }}</router-link>
           </div>
         </div>
       </div>
     </div>
-    <div id="aritcle-bottom"></div>
+
+    <!-- 按分类推荐 -->
+    <div id="aritcle-bottom">
+      <category-book></category-book>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import CategoryBook from '@/components/Home/CategoryBook.vue'
+
 export default {
   name: 'QMain',
-  // 在组件创建之后拉取数据
-  data () {
-    return {
-
-    }
-  },
   created () {
     this.$store.dispatch('getHomeData')
   },
   computed: {
-    ...mapState(['homeData'])
+    ...mapState(['homeData']),
+
+    // 强力推荐的书
+    highlyRecommended () {
+      return this.homeData.recommended[0]
+    }
+  },
+  components: {
+    CategoryBook
   }
 }
 </script>
@@ -96,10 +106,9 @@ export default {
       }
     }
 
+    // 热门小说
     #hot {
       width: 70%;
-      margin-right: 5rem;
-      margin-left: 5rem;
       #hot-title {
         @include hot-recommeded-title;
       }
@@ -133,8 +142,10 @@ export default {
       }
     }
 
+    // 强力推荐
     #recommended {
       width: 30%;
+      margin-left: 5rem;
       // background-color: royalblue;
 
       #recommended-title {
@@ -158,10 +169,14 @@ export default {
       }
     }
   }
+
   #aritcle-bottom {
-    // width: 20%;
-    height: 30rem;
-    background-color: red;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: white;
+    font-size: 2rem;
+    display: flex;
+    border-radius: 0.6rem;
   }
 }
 </style>
