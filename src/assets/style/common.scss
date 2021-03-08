@@ -1,0 +1,15 @@
+// 二级标题
+@mixin title-level-2 {
+  font-size: 1.6rem;
+  text-align: left;
+  margin: 0 0 1.5rem 0;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+// 链接hover变色
+@mixin link-hover {
+  &:hover {
+    color: skyblue;
+  }
+}
