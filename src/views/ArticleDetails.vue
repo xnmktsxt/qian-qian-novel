@@ -38,7 +38,10 @@
           v-for="(catalog, index) in articleDetials.page"
           :key="index"
         >
-          <router-link to="#">{{ catalog.name }}</router-link>
+          <router-link
+            :to="{ name: 'ArticleDetails', query: { url: catalog.url } }"
+            >{{ catalog.name }}</router-link
+          >
         </div>
       </div>
     </el-drawer>
@@ -56,10 +59,20 @@ export default {
     }
   },
   created () {
-    let url = '/api' + this.$route.path + '?' + 'url=' + this.$route.query.url
-    axios.get(url)
-      .then(response => this.articleDetials = response.data.data)
-      .catch(err => console.log(err))
+    this.getData()
+  },
+  watch: {
+    $route () {
+      this.getData()
+    }
+  },
+  methods: {
+    getData () {
+      let url = '/api' + this.$route.path + '?' + 'url=' + this.$route.query.url
+      axios.get(url)
+        .then(response => this.articleDetials = response.data.data)
+        .catch(err => console.log(err))
+    }
   }
 }
 </script>
