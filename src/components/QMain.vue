@@ -70,17 +70,12 @@ export default {
 </script>
 
 <style lang="scss" scope>
+@import '@/assets/style/common';
 #article-wrap {
   display: flex;
   width: 80%;
   margin: auto;
   flex-direction: column;
-
-  @mixin link-hover {
-    &:hover {
-      color: skyblue;
-    }
-  }
 
   #article-top {
     margin-top: 2rem;
@@ -89,14 +84,6 @@ export default {
     font-size: 2rem;
     display: flex;
     border-radius: 0.6rem;
-
-    @mixin hot-recommeded-title {
-      font-size: 1.6rem;
-      text-align: left;
-      margin: 0 0 1.5rem 0;
-      padding: 1rem 0 1rem 0;
-      border-bottom: 1px solid #dbdbdb;
-    }
 
     @media screen and (max-width: 80rem) {
       flex-direction: column;
@@ -110,7 +97,7 @@ export default {
     #hot {
       width: 70%;
       #hot-title {
-        @include hot-recommeded-title;
+        @include title-level-2;
       }
       #hot-book-list {
         display: flex;
@@ -149,7 +136,7 @@ export default {
       // background-color: royalblue;
 
       #recommended-title {
-        @include hot-recommeded-title;
+        @include title-level-2;
       }
 
       #recommended-book-list {
