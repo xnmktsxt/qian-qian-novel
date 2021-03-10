@@ -3,6 +3,9 @@
 ## 技术栈
 Vue2、Vuex、Vue-CLI4、Vue-router、axios、Element-UI、Sass、ES6、Flex
 
+用到的第三方API
+[BooKCrawer](https://github.com/zouhuanxin/BookCrawler)
+
 ## Project setup
 
 ```
