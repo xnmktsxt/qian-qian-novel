@@ -1,7 +1,7 @@
 小说阅读网站
 
 ## 技术栈
-Vue2、Vuex、Vue-CLI4、Vue-router、axios、Element-UI、Sass、node.js
+Vue2、Vuex、Vue-CLI4、Vue-router、axios、Element-UI、Sass、ES6、Flex
 
 ## Project setup
 
